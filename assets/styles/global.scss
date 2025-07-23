@@ -1,0 +1,45 @@
+// Fichier rassemblant les styles globaux a l'application
+
+@import '/assets/styles/variables';
+
+body {
+    font-family: Inter, sans-serif;
+    color: $dark-green;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+}
+
+// Base pour tous les boutons
+.button {
+  background-color: $green;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+// Classe pour les div qui afficheront les leaf
+.card-post{
+  background-color: $light-green;
+  border-radius: 32px;
+  padding: 16px;
+  margin: auto;
+}
+
+@media screen and (max-width: 640px) {
+    .title {
+        font-size: 32px;
+    }
+    .button {
+        border-radius: 32px;
+    }
+}

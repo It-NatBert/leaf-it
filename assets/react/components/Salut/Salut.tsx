@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from ''
 
 export const Salut = () => {
     return (
-        <h1>Salut CeR !</h1>
+        <h1 className='testTitle'>Salut CeR !</h1>
     );
 }

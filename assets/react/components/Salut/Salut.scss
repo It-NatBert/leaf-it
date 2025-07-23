@@ -1,4 +1,6 @@
+@import '/assets/styles/variables';
 
 .testTitle {
-    font-size: 120px !important;;
+    font-size: 120px;
+    color: $blue;
 }

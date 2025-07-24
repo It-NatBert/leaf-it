@@ -7,7 +7,7 @@ const SearchBar = () => {
         event.preventDefault();
     };
 
-    // 24/07/2025: Mettre la loupe sous format SVG comme dans le design
+    // Nathan : 24/07/2025: Mettre la loupe sous format SVG comme dans le design
     /* Faire l'animation du du milieu à en haut de la page  */
     return (
         <form className="user-form search-button" onSubmit={handleSearch}>

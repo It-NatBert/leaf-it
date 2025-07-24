@@ -7,6 +7,7 @@ import ButtonPublish from './react/components/Button/ButtonPublish';
 import ButtonConnexion from './react/components/Button/ButtonConnexion';
 import ButtonRegister from './react/components/Button/ButtonRegister';
 import ConnexionPage from "./react/pages/Connexion/Connexion";
+import ButtonAddTrees from './react/components/Button/ButtonAddTrees';
 
 const rootEl = document.getElementById('react-root');
 if (rootEl) {
@@ -17,7 +18,8 @@ if (rootEl) {
             {/* <Searchbar /> */}
             {/* <ButtonPublish /> */}
             {/* <ButtonConnexion /> */}
-            <ButtonRegister/>
+            {/* <ButtonRegister /> */}
+            <ButtonAddTrees />
         </>
     );
 }

@@ -3,3 +3,17 @@
   width: 280px;
   height: 100px;
 }
+
+.addToTrees {
+  background-color: $light-green;
+}
+
+.notAddToTrees {
+  background-color: $dark-green;
+}
+
+.button-flare {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}

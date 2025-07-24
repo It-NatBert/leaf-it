@@ -11,6 +11,7 @@ final class SalutController extends AbstractController
     #[Route('/', name: 'app_salut')]
     public function index(): Response
     {
+   
         return $this->render('salut/index.html.twig', [
             'controller_name' => 'SalutController',
         ]);

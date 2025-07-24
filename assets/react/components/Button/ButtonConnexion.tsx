@@ -28,7 +28,7 @@ const ButtonConnexion = ({ email, password }: ButtonConnexionProps) => {
     }
 
     return (
-        <button className="button-new-leaf button" onClick={handleOnClick}>
+        <button className="button" onClick={handleOnClick}>
             {isLoading ? 'Chargement...' : 'Se connecter'}
         </button>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 const ButtonConnexion = () => {
     return (
-        <button className="button-new-leaf button">
+        <button className="button">
             Se connecter
         </button>
     );

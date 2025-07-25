@@ -5,6 +5,9 @@ import ConnexionPage from "./react/pages/Connexion/Connexion";
 import LeftMenu from './react/components/LeftMenu/LeftMenu';
 import InscriptionPage from "./react/pages/Inscription/Inscription";
 
+import PasswordRecoveryConfirmPage from "./react/pages/PasswordRecovery/PasswordRecoveryConfirm";
+import PasswordRecoveryPage from "./react/pages/PasswordRecovery/PasswordRecovery";
+
 const rootEl = document.getElementById('react-root');
 if (rootEl) {
     const root = createRoot(rootEl);
@@ -34,3 +37,18 @@ if (inscriptionContainer) {
 
     root.render(<InscriptionPage/>);
 }
+
+const passwordRecovContainer = document.getElementById('password-recovery-root');
+if (passwordRecovContainer) {
+    const root = createRoot(passwordRecovContainer);
+
+    root.render(<PasswordRecoveryPage email="monSuperMail@mail.com"/>);
+}
+
+const passwordRecovConfirmContainer = document.getElementById('password-recovery-confirmed-root');
+if (passwordRecovConfirmContainer) {
+    const root = createRoot(passwordRecovConfirmContainer);
+
+    root.render(<PasswordRecoveryConfirmPage email="monSuperMail@mail.com"/>);
+}
+

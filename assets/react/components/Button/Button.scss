@@ -36,3 +36,30 @@
   width: 48px;
   height: auto;
 }
+
+.button-post {
+  width: 198px;
+  height: 68px;
+}
+
+.button-form-user {
+    width: 457px;
+    height: 98px;
+}
+
+@media screen and (max-width: 640px) {
+  /** Pas d'affichage du même bouton publier sur mobile **/
+  .button-new-leaf {
+    display: none;
+  }
+
+  .button-post {
+    width: 154px;
+    height: 44px;
+  }
+
+  .button-form-user {
+    width: 224px;
+    height: 64px;
+}
+}

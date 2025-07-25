@@ -8,7 +8,7 @@ import ButtonConnexion from './react/components/Button/ButtonConnexion';
 import ButtonRegister from './react/components/Button/ButtonRegister';
 import ConnexionPage from "./react/pages/Connexion/Connexion";
 import ButtonAddTrees from './react/components/Button/ButtonAddTrees';
-import LeftMenu from './react/components/Left-Menu/LeftMenu';
+import LeftMenu from './react/components/LeftMenu/LeftMenu';
 
 const rootEl = document.getElementById('react-root');
 if (rootEl) {
@@ -20,7 +20,7 @@ if (rootEl) {
             {/* <ButtonPublish /> */}
             {/* <ButtonConnexion /> */}
             {/* <ButtonRegister /> */}
-            <ButtonAddTrees />
+            {/* <ButtonAddTrees /> */}
             <LeftMenu />
         </>
     );

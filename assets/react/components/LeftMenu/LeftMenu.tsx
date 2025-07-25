@@ -2,6 +2,8 @@ import React from "react";
 import ButtonLeftMenu from "../Button/ButtonLeftMenu";
 import ButtonPublish from "../Button/ButtonPublish";
 import { House, User, Search, Settings } from 'lucide-react';
+// @ts-ignore
+import leafIconGreen from '../../../icon/leaftitIcon-green.svg';
 
 const menu=[
     {icon:<House />,name:'Accueil'},
@@ -12,7 +14,11 @@ const menu=[
 
 const LeftMenu = () => {
     return (
-        <>
+        <div className="left-menu">
+            <div className="div-leaf-it-menu">
+                <img src={leafIconGreen} alt="Leaf Icon" className="leaf-it-icon-menu"/>
+                <h1 className="leaf-it-title-menu">Leaf-it</h1>
+            </div>
             <div id="div-menu-button">
                 {menu.map((item, index) => (
                     <ButtonLeftMenu
@@ -23,7 +29,7 @@ const LeftMenu = () => {
                 ))}
             </div>
             <ButtonPublish />
-        </>
+        </div>
     );
 }
 

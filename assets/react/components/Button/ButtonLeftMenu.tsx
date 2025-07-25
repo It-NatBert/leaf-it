@@ -11,7 +11,8 @@ type ButtonLeftMenuProps = {
 const ButtonLeftMenu = ({ icon, name }: ButtonLeftMenuProps) => {
     return (
         <button className="button-left-menu">
-            {icon}{name}
+            {icon}
+            <span className='text-button-left-menu'>{name}</span>
         </button>
     );
 };

@@ -17,3 +17,22 @@
   height: 70px;
   border-radius: 50%;
 }
+
+.button-left-menu {
+  color: $grey;
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.button-left-menu:hover{
+  cursor: pointer;
+}
+
+.button-left-menu svg {
+  width: 48px;
+  height: auto;
+}

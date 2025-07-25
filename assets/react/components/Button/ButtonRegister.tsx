@@ -7,7 +7,7 @@ type ButtonRegisterProps = {
 
 }
 
-const ButtonRegister = ({ pseudo, email, password }: ButtonRegisterProps) => {
+const ButtonRegister = ({pseudo, email, password}: ButtonRegisterProps) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleOnClick = () => {
@@ -19,7 +19,7 @@ const ButtonRegister = ({ pseudo, email, password }: ButtonRegisterProps) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ pseudo, email, password }),
+                body: JSON.stringify({pseudo, email, password}),
             })
         } catch (error) {
             console.error('Error:', error);
@@ -29,8 +29,8 @@ const ButtonRegister = ({ pseudo, email, password }: ButtonRegisterProps) => {
     }
 
     return (
-        <button className="button-new-leaf button" onClick={handleOnClick}>
-            {isLoading ? 'Chargement...' : 'Enregistrer'}
+        <button className="button" onClick={handleOnClick}>
+            {isLoading ? 'Chargement...' : 'S\'inscrire'}
         </button>
     );
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ButtonConnexion from "../../components/Button/ButtonConnexion";
+
 import ButtonRegister from "../../components/Button/ButtonRegister";
 
 const InscriptionPage = () => {

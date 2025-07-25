@@ -16,10 +16,9 @@ const ConnexionPage = () => {
                 </label>
             </form>
 
-            <ButtonConnexion/>
+            <ButtonConnexion  email="test@mail.com" password="1234"/>
         </div>
-    )
-        ;
+    );
 };
 
 export default ConnexionPage;

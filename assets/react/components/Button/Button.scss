@@ -37,14 +37,9 @@
   height: auto;
 }
 
-.button-post {
+.button-publish {
   width: 198px;
   height: 68px;
-}
-
-.button-form-user {
-    width: 457px;
-    height: 98px;
 }
 
 @media screen and (max-width: 640px) {
@@ -53,13 +48,8 @@
     display: none;
   }
 
-  .button-post {
+  .button-publish {
     width: 154px;
     height: 44px;
   }
-
-  .button-form-user {
-    width: 224px;
-    height: 64px;
-}
 }

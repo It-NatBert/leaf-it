@@ -17,3 +17,43 @@
   height: 70px;
   border-radius: 50%;
 }
+
+.button-left-menu {
+  color: $grey;
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.button-left-menu:hover{
+  cursor: pointer;
+}
+
+.button-left-menu svg {
+  width: 48px;
+  height: auto;
+}
+
+.button-publish {
+  width: 198px;
+  height: 68px;
+}
+
+@media screen and (max-width: 640px) {
+  /** Pas d'affichage du même bouton publier sur mobile **/
+  .button-new-leaf {
+    display: none;
+  }
+
+  .button-publish {
+    width: 154px;
+    height: 44px;
+  }
+
+  .text-button-left-menu {
+    display: none;
+  }
+}

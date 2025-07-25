@@ -16,7 +16,7 @@ const ConnexionPage = () => {
                 </label>
             </form>
 
-            <ButtonConnexion password="" email=""/>
+            <ButtonConnexion/>
         </div>
     )
         ;

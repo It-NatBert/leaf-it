@@ -15,9 +15,10 @@ body {
     color: $dark-green;
 }
 
-#connexion-root, #inscription-root {
+#connexion-root, #inscription-root, #password-recovery-root {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     min-height: calc(100vh - 160px);
     width: 100%;
@@ -94,6 +95,24 @@ input {
 
 .bold-text {
     font-weight: bold;
+}
+
+.dark-green-text {
+    color: $dark-green;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-flex-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
 }
 
 a {

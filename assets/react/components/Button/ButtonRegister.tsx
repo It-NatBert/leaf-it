@@ -12,9 +12,10 @@ const ButtonRegister = ({pseudo, email, password}: ButtonRegisterProps) => {
 
     const handleOnClick = () => {
         setIsLoading(true);
+
         try {
             // Nathan : 24/07/2025 Changer l'url pour l'API d'enregistrement
-            const res = fetch('/api/register', {
+            const res = fetch('/api/inscription', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

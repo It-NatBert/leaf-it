@@ -1,16 +1,41 @@
 @import '/assets/styles/variables';
 
-.inscription-page-container-mobile {
-    min-height: 100vh;
+.inscription-page-container-mobile, .inscription-confirm-page-container-mobile {
+    min-height: calc(100vh - 160px);
     width: 100%;
     margin: 0;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    display: grid;
+
+    grid-template-rows: auto 1fr 50px;
 
     background: $white;
+
+
+    * {
+        justify-self: center;
+    }
+
+    h1 {
+        width: 60%;
+        text-align: center;
+    }
+
+    p {
+        width: 70%;
+        text-align: center;
+    }
+
+    a {
+        margin-top: 32px;
+        width: 50%;
+    }
+
+    .sub-container {
+        :last-child {
+            margin-top: 24px;
+        }
+    }
 }
 
 .label-connexion-mobile {

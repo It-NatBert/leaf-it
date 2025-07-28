@@ -76,7 +76,7 @@ const Gestion = (props: GestionProps) => {
                 </label>
             </form>
 
-            <ButtonUpdatedUser id={1} pseudo={formData.userName} email={formData.mail} password={formData.password} dateOfBirth={formData.dateOfBirth}/>
+            <ButtonUpdatedUser id={1} pseudo={formData.userName} email={formData.mail} password={formData.password}/>
         </div>
     </div>
   )

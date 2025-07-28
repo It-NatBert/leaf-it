@@ -4,7 +4,7 @@ import {createRoot} from 'react-dom/client';
 import ConnexionPage from "./react/pages/Connexion/Connexion";
 import LeftMenu from './react/components/LeftMenu/LeftMenu';
 import InscriptionPage from "./react/pages/Inscription/Inscription";
-
+import GestionCompte from "./react/pages/GestionCompte/Gestion";
 import PasswordRecoveryConfirmPage from "./react/pages/PasswordRecovery/PasswordRecoveryConfirm";
 import PasswordRecoveryPage from "./react/pages/PasswordRecovery/PasswordRecovery";
 
@@ -19,7 +19,8 @@ if (rootEl) {
             {/* <ButtonConnexion /> */}
             {/* <ButtonRegister /> */}
             {/* <ButtonAddTrees /> */}
-            <LeftMenu/>
+            {/* <LeftMenu/> */}
+            <GestionCompte pseudo='JohnDoe' email='john.doe@example.com' password='password123'/>
         </>
     );
 }

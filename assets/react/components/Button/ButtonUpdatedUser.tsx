@@ -30,7 +30,7 @@ const ButtonUpdatedUser = ({id, pseudo, email, password}: ButtonUpdatedUserProps
 
   return (
     <div>
-      <button className="button-new-leaf button" onClick={handleOnClick}>
+      <button className="button" onClick={handleOnClick}>
         {isLoading ? 'Chargement...' : 'Enregistrer'}
       </button>
     </div>

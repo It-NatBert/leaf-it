@@ -12,11 +12,11 @@ const ConnexionPage = () => {
 
                 <label id="password" className="label-connexion-mobile"> <span className="labels">Mot de passe</span>
                     <input type={"password"} name={"password"}/>
-                    <a>J'ai oublié mon mot de passe</a>
+                    <a href="/password-recovery">J'ai oublié mon mot de passe</a>
                 </label>
             </form>
 
-            <ButtonConnexion  email="test@mail.com" password="1234"/>
+            <ButtonConnexion email="test@mail.com" password="1234"/>
         </div>
     );
 };

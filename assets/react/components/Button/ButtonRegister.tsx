@@ -4,34 +4,41 @@ type ButtonRegisterProps = {
     pseudo: string;
     email: string;
     password: string;
+    submitPossible: boolean;
 
 }
 
-const ButtonRegister = ({pseudo, email, password}: ButtonRegisterProps) => {
+const ButtonRegister = ({pseudo, email, password, submitPossible}: ButtonRegisterProps) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [messageButton, setMessageButton] = useState("S'inscrire");
 
-    const handleOnClick = () => {
-        setIsLoading(true);
+    const handleOnClick = async () => {
+            setIsLoading(true);
+            
+            try {
+                const res = await fetch('/api/inscription', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({pseudo, email, password}),
+                })
+            } catch (error) {
+                console.error('Error:', error);
+            } finally {
 
-        try {
-            // Nathan : 24/07/2025 Changer l'url pour l'API d'enregistrement
-            const res = fetch('/api/inscription', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({pseudo, email, password}),
-            })
-        } catch (error) {
-            console.error('Error:', error);
-        } finally {
-            setIsLoading(false);
-        }
+                // Clemence: gérer la redirection une fois inscrit?
+                setMessageButton("Inscrit!")
+                setIsLoading(false);
+            }
     }
 
     return (
-        <button className="button" onClick={handleOnClick}>
-            {isLoading ? 'Chargement...' : 'S\'inscrire'}
+        <button className="button" onClick={() => {
+            if (!submitPossible) return;
+            handleOnClick();
+        }} disabled={!submitPossible}>
+            {isLoading ? 'Chargement...' : messageButton}
         </button>
     );
 }

@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 #[Route('/api')]
 final class UserController extends AbstractController
 {
-    // Route pour l'inscription, gère le fetch et je Json qui lui est envoyé
+    // Route pour l'inscription, gère le fetch et le Json qui lui est envoyé
     #[Route('/inscription', name: 'api_user_new', methods: ['POST'])]
     public function new(
         Request $request,

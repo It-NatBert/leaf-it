@@ -7,6 +7,7 @@ import InscriptionPage from "./react/pages/Inscription/Inscription";
 
 import PasswordRecoveryConfirmPage from "./react/pages/PasswordRecovery/PasswordRecoveryConfirm";
 import PasswordRecoveryPage from "./react/pages/PasswordRecovery/PasswordRecovery";
+import InscriptionConfirmPage from "./react/pages/Inscription/InscriptionConfirm";
 
 const rootEl = document.getElementById('react-root');
 if (rootEl) {
@@ -36,6 +37,13 @@ if (inscriptionContainer) {
     const root = createRoot(inscriptionContainer);
 
     root.render(<InscriptionPage/>);
+}
+
+const inscriptionConfirmContainer = document.getElementById('inscription-confirm-root');
+if (inscriptionConfirmContainer) {
+    const root = createRoot(inscriptionConfirmContainer);
+
+    root.render(<InscriptionConfirmPage/>);
 }
 
 const passwordRecovContainer = document.getElementById('password-recovery-root');

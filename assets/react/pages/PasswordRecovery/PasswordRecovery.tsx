@@ -5,8 +5,8 @@ const PasswordRecoveryPage = ({email}: { email: string }) => {
     return (
         <div className="password-recov-page-container-mobile">
             <h1 className="title">Mot de passe oublié</h1>
-
             <div className="display-flex-centered flex-col sub-container">
+                <p>Afin de récupérer votre mot de passe veuillez entrer votre adresse mail ci-dessous</p>
                 <form>
                     <label id="mail" className="label-connexion-mobile"> <span className="labels">Adresse mail</span>
                         <input type={"text"} name={"mail"}/>

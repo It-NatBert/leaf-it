@@ -8,6 +8,8 @@ import GestionCompte from "./react/pages/GestionCompte/Gestion";
 import PasswordRecoveryConfirmPage from "./react/pages/PasswordRecovery/PasswordRecoveryConfirm";
 import PasswordRecoveryPage from "./react/pages/PasswordRecovery/PasswordRecovery";
 import InscriptionConfirmPage from "./react/pages/Inscription/InscriptionConfirm";
+import Profil from "./react/pages/Profil/Profil";
+import Feed from "./react/pages/Feed/Feed";
 
 const rootEl = document.getElementById('react-root');
 if (rootEl) {
@@ -21,7 +23,8 @@ if (rootEl) {
             {/* <ButtonRegister /> */}
             {/* <ButtonAddTrees /> */}
             {/* <LeftMenu/> */}
-            <GestionCompte pseudo='JohnDoe' email='john.doe@example.com' password='password123'/>
+            <Feed />
+            {/* <GestionCompte pseudo='JohnDoe' email='john.doe@example.com' password='password123'/> */}
         </>
     );
 }
@@ -59,5 +62,14 @@ if (passwordRecovConfirmContainer) {
     const root = createRoot(passwordRecovConfirmContainer);
 
     root.render(<PasswordRecoveryConfirmPage email="monSuperMail@mail.com"/>);
+}
+
+const profilContainer = document.getElementById('profil-root');
+if (profilContainer) {
+
+    const user = profilContainer.dataset.props ? JSON.parse(profilContainer.dataset.props) : null;
+    console.log("data-set-user", user);
+    const root = createRoot(profilContainer);
+    root.render(<Profil user={user} />);
 }
 

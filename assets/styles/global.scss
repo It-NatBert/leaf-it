@@ -70,6 +70,15 @@ body {
     transition-duration: 0.25s;
 }
 
+.button:disabled {
+    color: $grey;
+    background-color: $light-grey;
+}
+
+.button:disabled:hover{
+    cursor: not-allowed;
+}
+
 // Classe pour les div qui afficheront les leaf
 .card-post {
     background-color: $light-green;

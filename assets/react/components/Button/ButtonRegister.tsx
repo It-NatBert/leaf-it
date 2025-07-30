@@ -4,35 +4,58 @@ type ButtonRegisterProps = {
     pseudo: string;
     email: string;
     password: string;
+    submitPossible: boolean;
 
 }
 
-const ButtonRegister = ({pseudo, email, password}: ButtonRegisterProps) => {
+const ButtonRegister = ({pseudo, email, password, submitPossible}: ButtonRegisterProps) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const handleOnClick = () => {
+    const handleOnClick = async () => {
         setIsLoading(true);
-
+        setErrorMessage('');
+        
         try {
-            // Nathan : 24/07/2025 Changer l'url pour l'API d'enregistrement
-            const res = fetch('/api/inscription', {
+            const res = await fetch('/api/inscription', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({pseudo, email, password}),
-            })
+            });
+            
+            if (!res.ok) {
+                const errorData = await res.json();
+                const message = errorData.error || 'Erreur inconnue';
+                setErrorMessage(message);
+                console.error('Error:', message);
+                return;
+            } else {
+                // Redirection en cas de succès
+                window.location.href = '/inscription-confirm';
+            }
+
         } catch (error) {
-            console.error('Error:', error);
+            setErrorMessage('Erreur réseau ou serveur');
+            console.error('Error:', errorMessage);
         } finally {
+
+            // Clemence: gérer la redirection une fois inscrit?
             setIsLoading(false);
         }
     }
 
     return (
-        <button className="button" onClick={handleOnClick}>
-            {isLoading ? 'Chargement...' : 'S\'inscrire'}
-        </button>
+        <>
+            <button className="button" onClick={() => {
+                if (!submitPossible) return;
+                handleOnClick();
+            }} disabled={!submitPossible}>
+                {isLoading ? 'Chargement...' : 'S\'inscrire'}
+            </button>
+            {errorMessage && <p>{errorMessage}</p>}
+        </>
     );
 }
 

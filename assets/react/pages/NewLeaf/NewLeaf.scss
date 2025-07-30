@@ -2,71 +2,97 @@
 
 .new-leaf-page-container-mobile {
     height: 100%;
-    width: 70%;
+    width: 80%;
     margin: 0;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-
-    background: $white;
-}
-
-form {
-    padding: 8px;
-    width: 100%;
-
-    border-radius: 8px;
-    background: $light-green;
-
-    .label-message {
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        width: 100%;
-    }
-
-    .labels {
-        margin: 16px 0;
-    }
-
-    .characters-count {
-        width: 100%;
-
-        text-align: right;
-    }
-}
-
-.flag-zone {
-    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 64px;
+    grid-template-rows: 1fr 5fr 1fr;
     gap: 16px;
 
-    align-items: center;
+    background: $white;
 
-    color: $dark-green;
-    text-align: right;
-    font-size: 13px;
-    font-weight: bold;
+    form {
+        width: 100%;
+
+        border-radius: 8px;
+        background: $light-green;
+
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        .sub-container {
+            margin: 16px;
+        }
+
+        .label-message {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+        }
+
+        .labels {
+            margin: 16px 0;
+        }
+
+        .characters-count {
+            width: 100%;
+
+            text-align: right;
+        }
+    }
+
+    .flag-zone {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 64px;
+        gap: 12px;
+
+        align-items: center;
+
+        color: $dark-green;
+        text-align: right;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    textarea {
+        width: 90%;
+        height: 224px;
+
+        background: transparent;
+
+        font-size: 15px;
+        border: none;
+
+        resize: none;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    .decision-zone {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        grid-row-start: 3;
+        grid-row-end: 4;
+
+        .cancel-button {
+            font-size: 16px;
+            font-weight: bold;
+            color: $dark-green;
+        }
+
+        .button {
+            min-width: 50% !important;
+        }
+    }
 }
 
-textarea {
-    width: 90%;
-    height: 224px;
-
-    background: transparent;
-
-    font-size: 15px;
-    border: none;
-
-    resize: none;
-}
-
-textarea:focus {
-    outline: none;
-}

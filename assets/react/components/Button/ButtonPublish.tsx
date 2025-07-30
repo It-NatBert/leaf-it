@@ -30,7 +30,7 @@ const ButtonPublish = ({id_user, date_note, flag, content, status = "posted"}: B
     };
 
     return (
-        <button className="button-publish button" onClick={handleOnClick}>
+        <button className="button" onClick={handleOnClick}>
             {isLoading ? 'Chargement...' : 'Publier'}
         </button>
     );

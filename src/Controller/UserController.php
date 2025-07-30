@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[Route('/api')]
 final class UserController extends AbstractController
@@ -42,14 +43,19 @@ final class UserController extends AbstractController
     }
 
 
-    #[Route(name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
+    #[Route('/index', name: 'app_user_index', methods: ['GET'])]
+    public function index(UserRepository $userRepository, SerializerInterface $serial): JsonResponse
     {
-        return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+        $users = $userRepository->findAll();
+        $json = $serial->serialize($users, 'json', [
+            AbstractNormalizer::GROUPS => ['api']
         ]);
+        return new JsonResponse($json, 200, [], true);
+        
+        // return $this->render('user/index.html.twig', [
+        //     'users' => $userRepository->findAll(),
+        // ]);
     }
-
 
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]

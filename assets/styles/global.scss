@@ -15,7 +15,7 @@ body {
     color: $dark-green;
 }
 
-#connexion-root, #inscription-root, #password-recovery-root {
+#connexion-root, #inscription-root, #password-recovery-root, #new-leaf-root {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +38,6 @@ body {
 .labels {
     font-weight: bold;
     font-size: 16px;
-
 }
 
 // Base pour tous les boutons

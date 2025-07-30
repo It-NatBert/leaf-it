@@ -44,6 +44,10 @@
     align-items: center;
     justify-content: center;
 
+    label {
+        margin-block: 24px;
+    }
+
     & span {
         margin: 12px 0;
     }
@@ -72,9 +76,4 @@
 
 label {
     margin-block: 24px;
-}
-
-.alert-connexion-mobile {
-    font-size: 12px;
-    color: $orange-alert;
 }

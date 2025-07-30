@@ -1,59 +1,72 @@
 /** Boutons publier (créer nouvelle leaf) **/
 .button-new-leaf {
-  width: 280px;
-  height: 100px;
+    width: 280px;
+    height: 100px;
 }
 
 .addToTrees {
-  background-color: $light-green;
+    background-color: $white;
 }
 
 .notAddToTrees {
-  background-color: $dark-green;
+    background-color: $dark-green;
 }
 
 .button-flare {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.button-flare img {
+    height: 60%;
+    width: 60%;
 }
 
 .button-left-menu {
-  color: $grey;
-  font-size: 32px;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+    color: $grey;
+    font-size: 32px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-.button-left-menu:hover{
-  cursor: pointer;
+.button-left-menu:hover {
+    cursor: pointer;
 }
 
 .button-left-menu svg {
-  width: 48px;
-  height: auto;
+    width: 48px;
+    height: auto;
 }
 
 .button-publish {
-  width: 198px;
-  height: 68px;
+    width: 198px;
+    height: 68px;
 }
 
 @media screen and (max-width: 640px) {
-  /** Pas d'affichage du même bouton publier sur mobile **/
-  .button-new-leaf {
-    display: none;
-  }
+    /** Pas d'affichage du même bouton publier sur mobile **/
+    .button-new-leaf {
+        display: none;
+    }
 
-  .button-publish {
-    width: 154px;
-    height: 44px;
-  }
+    .button-publish {
+        width: 154px;
+        height: 44px;
+    }
 
-  .text-button-left-menu {
-    display: none;
-  }
+    .text-button-left-menu {
+        display: none;
+    }
 }

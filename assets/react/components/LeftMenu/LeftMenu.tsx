@@ -1,15 +1,15 @@
 import React from "react";
 import ButtonLeftMenu from "../Button/ButtonLeftMenu";
 import ButtonPublish from "../Button/ButtonPublish";
-import { House, User, Search, Settings } from 'lucide-react';
+import {House, User, Search, Settings} from 'lucide-react';
 // @ts-ignore
 import leafIconGreen from '../../../icon/leaftitIcon-green.svg';
 
-const menu=[
-    {icon:<House />,name:'Accueil'},
-    {icon:<User />,name:'Profil'},
-    {icon:<Search />,name:'Rechercher'},
-    {icon:<Settings />,name:'Paramètres'},
+const menu = [
+    {icon: <House/>, name: 'Accueil'},
+    {icon: <User/>, name: 'Profil'},
+    {icon: <Search/>, name: 'Rechercher'},
+    {icon: <Settings/>, name: 'Paramètres'},
 ]
 
 const LeftMenu = () => {
@@ -28,7 +28,7 @@ const LeftMenu = () => {
                     />
                 ))}
             </div>
-            <ButtonPublish />
+            <a className="button">Publier</a>
         </div>
     );
 }

@@ -46,3 +46,5 @@ npm run watch
 ```
 
 Arrivé ici en vous connectant a l'adresse fournie par Symfony à son lancement (typiquement [localhost:8000]) vous devriez arriver sur la page d'accueil.
+
+test

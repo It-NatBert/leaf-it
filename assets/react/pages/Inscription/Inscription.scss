@@ -44,6 +44,10 @@
     align-items: center;
     justify-content: center;
 
+    label {
+        margin-block: 24px;
+    }
+
     & span {
         margin: 12px 0;
     }
@@ -68,8 +72,4 @@
     & a {
         margin-top: 12px;
     }
-}
-
-label {
-    margin-block: 24px;
 }

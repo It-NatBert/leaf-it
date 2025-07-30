@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 type ButtonPublishProps = {
     id_user: number;
     date_note: Date;
-    is_on_tree: boolean;
+    flag: boolean;
     content: string;
-    status: string;
+    status?: string;
 };
 
-const ButtonPublish = ({ id_user, date_note, is_on_tree, content, status = "posted" }: ButtonPublishProps) => {
+const ButtonPublish = ({id_user, date_note, flag, content, status = "posted"}: ButtonPublishProps) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleOnClick = () => {
@@ -20,7 +20,7 @@ const ButtonPublish = ({ id_user, date_note, is_on_tree, content, status = "post
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ id_user, date_note, is_on_tree, content, status }),
+                body: JSON.stringify({id_user, date_note, flag, content, status}),
             });
         } catch (error) {
             console.error('Error:', error);

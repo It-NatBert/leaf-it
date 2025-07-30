@@ -11,11 +11,20 @@ const InscriptionPage = () => {
     const [passwordVerif, setPasswordVerif] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [displayAlertPassword, setDisplayAlertPassword] = useState(false);
-    const [displayAlertAge, setDisplayAlertAge] = useState(false);
-    const [alertAge, setalertAge] = useState("");
+    const [ageRequis, setAgeRequis] = useState(true);
+    const [alertAge, setAlertAge] = useState("");
     const [submitPossible, setSubmitImpossible] = useState(false);
 
-    const checkMdpIdentique = (verif: string) => {
+    // check que le 1er mdp est identique à la verif
+    const checkMdp1Identique = (mdp: string) => {
+        if (mdp !== passwordVerif) {
+            setDisplayAlertPassword(true)
+        } else {
+            setDisplayAlertPassword(false)
+        }
+    }
+
+    const checkMdp2Identique = (verif: string) => {
         if (password !== verif) {
             setDisplayAlertPassword(true)
         } else {
@@ -24,6 +33,10 @@ const InscriptionPage = () => {
     }
 
     const checkAge = (date: string) => {
+        // défini age requis sur true par défaut
+        setAgeRequis(true);
+        
+        // calcul de l'age
         const birthDate = new Date(date);
         const today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
@@ -32,17 +45,19 @@ const InscriptionPage = () => {
             age--;
         }
         
+        // gestion des cas et alertes selon l'age
         if (age < 13) {
-            setDisplayAlertAge(true);
-            setalertAge("Vous n'avez pas l'age requis pour vous inscrire")
-        } else if ( age > 15) {
-            setDisplayAlertAge(false)
+            setAgeRequis(false);
+            setAlertAge("Vous n'avez pas l'age requis pour vous inscrire")
+        } else if ( age > 18) {
+            setAlertAge("")
         } else {
-            setDisplayAlertAge(true);
-            setalertAge("Selon les lois de votre pays, la supervision de votre tuteur légal peut être requise pour vous inscrire")
+            // pour les mineur >13ans: seulement message d'alerte mais n'empeche pas l'inscription
+            setAlertAge("Selon les lois de votre pays, la supervision de votre tuteur légal peut être requise pour vous inscrire")
         }
     }
 
+    // Verification de la validité du formulaire (tous les champs remplis + age requis + password identiques) 
     const isFormInvalid = () => {
     return (
         !pseudo ||
@@ -51,13 +66,13 @@ const InscriptionPage = () => {
         !passwordVerif ||
         !dateOfBirth ||
         displayAlertPassword ||
-        displayAlertAge
+        !ageRequis
         );
     };
 
     React.useEffect(() => {
         setSubmitImpossible(!isFormInvalid());
-    }, [pseudo, email, password, passwordVerif, dateOfBirth, displayAlertPassword, displayAlertAge]);
+    }, [pseudo, email, password, passwordVerif, dateOfBirth, displayAlertPassword, ageRequis]);
 
     return (
         <div className="inscription-page-container-mobile">
@@ -73,7 +88,14 @@ const InscriptionPage = () => {
                 </label>
 
                 <label id="password" className="label-connexion-mobile"> <span className="labels">Mot de passe</span>
-                    <input type={"password"} name={"password"} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input
+                        type={"password"}
+                        name={"password"}
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                            checkMdp1Identique(e.target.value)
+                            }}/>
                 </label>
 
                 <label id="passwordVerif" className="label-connexion-mobile"> <span className="labels">Entrez de nouveau le mot de passe</span>
@@ -83,7 +105,7 @@ const InscriptionPage = () => {
                         value={passwordVerif}
                         onChange={(e) => {
                             setPasswordVerif(e.target.value)
-                            checkMdpIdentique(e.target.value)
+                            checkMdp2Identique(e.target.value)
                     }}/>
                     { displayAlertPassword ? <p className='alert-connexion-mobile'>Les mots de passes doivent être identiques</p> : null }
                 </label>
@@ -98,7 +120,7 @@ const InscriptionPage = () => {
                             setDateOfBirth(e.target.value)
                             checkAge(e.target.value)
                     }}/>
-                    { displayAlertAge ? <p className='alert-connexion-mobile'>{alertAge}</p> : null }
+                    { alertAge != "" ? <p className='alert-connexion-mobile'>{alertAge}</p> : null }
 
                 </label>
             </form>

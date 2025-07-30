@@ -23,14 +23,27 @@ final class UserController extends AbstractController
     public function new(
         Request $request,
         EntityManagerInterface $entityManager,
+        UserRepository $userRepository,
         UserPasswordHasherInterface $passwordHasher
     ): JsonResponse {
 
         $data = json_decode($request->getContent(), true);
 
+        $email = $data['email'] ?? '';
+        $pseudo = $data['pseudo'] ?? '';
+
+        // check si l'email ou le pseudo existe déjà
+        if ($userRepository->findOneBy(['email' => $email])) {
+            return new JsonResponse(['error' => 'Email déjà utilisé'], 400);
+        }
+        if ($userRepository->findOneBy(['username' => $pseudo])) {
+            return new JsonResponse(['error' => 'Nom d\'utilisateur déjà utilisé'], 400);
+        }
+
         $user = new User();
         $user->setEmail($data['email'] ?? '');
         $user->setUsername($data['pseudo'] ?? '');
+        $user->setRoles(['ROLE_USER']);
 
         // Encoder le mot de passe
         $hashedPassword = $passwordHasher->hashPassword($user, $data['password'] ?? '');

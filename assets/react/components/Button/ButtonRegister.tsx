@@ -10,36 +10,52 @@ type ButtonRegisterProps = {
 
 const ButtonRegister = ({pseudo, email, password, submitPossible}: ButtonRegisterProps) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [messageButton, setMessageButton] = useState("S'inscrire");
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleOnClick = async () => {
-            setIsLoading(true);
+        setIsLoading(true);
+        setErrorMessage('');
+        
+        try {
+            const res = await fetch('/api/inscription', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({pseudo, email, password}),
+            });
             
-            try {
-                const res = await fetch('/api/inscription', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({pseudo, email, password}),
-                })
-            } catch (error) {
-                console.error('Error:', error);
-            } finally {
-
-                // Clemence: gérer la redirection une fois inscrit?
-                setMessageButton("Inscrit!")
-                setIsLoading(false);
+            if (!res.ok) {
+                const errorData = await res.json();
+                const message = errorData.error || 'Erreur inconnue';
+                setErrorMessage(message);
+                console.error('Error:', message);
+                return;
+            } else {
+                // Redirection en cas de succès
+                window.location.href = '/inscription-confirm';
             }
+
+        } catch (error) {
+            setErrorMessage('Erreur réseau ou serveur');
+            console.error('Error:', errorMessage);
+        } finally {
+
+            // Clemence: gérer la redirection une fois inscrit?
+            setIsLoading(false);
+        }
     }
 
     return (
-        <button className="button" onClick={() => {
-            if (!submitPossible) return;
-            handleOnClick();
-        }} disabled={!submitPossible}>
-            {isLoading ? 'Chargement...' : messageButton}
-        </button>
+        <>
+            <button className="button" onClick={() => {
+                if (!submitPossible) return;
+                handleOnClick();
+            }} disabled={!submitPossible}>
+                {isLoading ? 'Chargement...' : 'S\'inscrire'}
+            </button>
+            {errorMessage && <p>{errorMessage}</p>}
+        </>
     );
 }
 

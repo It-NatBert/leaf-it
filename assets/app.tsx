@@ -49,7 +49,10 @@ if (passwordRecovConfirmContainer) {
 
 const newLeafContainer = document.getElementById('new-leaf-root');
 if (newLeafContainer) {
+
+    const user = newLeafContainer.dataset.props ? JSON.parse(newLeafContainer.dataset.props) : null;
+
     const root = createRoot(newLeafContainer);
 
-    root.render(<NewLeafPage/>);
+    root.render(<NewLeafPage user={user}/>);
 }

@@ -3,5 +3,6 @@
 {% block title %}Écrire une nouvelle Leaf{% endblock %}
 
 {% block body %}
-    <div id="new-leaf-root" data-props=""></div>
+    <div id="new-leaf-root" data-props='{{ {user: user}|json_encode|e('html_attr') }}'></div>
 {% endblock %}
+

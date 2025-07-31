@@ -11,8 +11,13 @@ final class NewLeafController extends AbstractController
     #[Route('/post', name: 'app_new_leaf')]
     public function index(): Response
     {
+        $user = $this->getUser();
+
         return $this->render('new_leaf/index.html.twig', [
             'controller_name' => 'NewLeafController',
+            'user' => $user ? [
+                'id' => $user->getId()
+            ] : null
         ]);
     }
 }

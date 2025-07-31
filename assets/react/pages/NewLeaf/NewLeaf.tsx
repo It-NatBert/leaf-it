@@ -4,7 +4,7 @@ import {useState} from "react";
 import ButtonPublish from "../../components/Button/ButtonPublish";
 import ButtonAddTrees from "../../components/Button/ButtonAddTrees";
 
-const NewLeafPage = () => {
+const NewLeafPage = ({user}: { user: { id: number } }) => {
     const [message, setMessage] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
 
@@ -36,7 +36,7 @@ const NewLeafPage = () => {
 
             <div className={"decision-zone"}>
                 <a href={"/"} className={"cancel-button"}>Annuler</a>
-                <ButtonPublish flag={flag} date_note={new Date(Date.now())} id_user={3} content={message}/>
+                <ButtonPublish flag={flag} date_note={new Date(Date.now())} id_user={user.id} content={message}/>
             </div>
         </div>
     );

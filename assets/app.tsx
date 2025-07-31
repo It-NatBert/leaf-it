@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/app.scss';
 import {createRoot} from 'react-dom/client';
 import ConnexionPage from "./react/pages/Connexion/Connexion";
-import LeftMenu from './react/components/LeftMenu/LeftMenu';
 import InscriptionPage from "./react/pages/Inscription/Inscription";
 import GestionCompte from "./react/pages/GestionCompte/Gestion";
 import PasswordRecoveryConfirmPage from "./react/pages/PasswordRecovery/PasswordRecoveryConfirm";
@@ -24,13 +23,6 @@ if (rootEl) {
             <GestionCompte pseudo='JohnDoe' email='john.doe@example.com' password='password123'/>
         </>
     );
-}
-
-const connexionContainer = document.getElementById('connexion-root');
-if (connexionContainer) {
-    const root = createRoot(connexionContainer);
-
-    root.render(<ConnexionPage/>);
 }
 
 const inscriptionContainer = document.getElementById('inscription-root');

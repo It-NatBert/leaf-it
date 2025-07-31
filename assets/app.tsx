@@ -19,13 +19,6 @@ if (rootEl) {
     );
 }
 
-const connexionContainer = document.getElementById('connexion-root');
-if (connexionContainer) {
-    const root = createRoot(connexionContainer);
-
-    root.render(<ConnexionPage/>);
-}
-
 const inscriptionContainer = document.getElementById('inscription-root');
 if (inscriptionContainer) {
     const root = createRoot(inscriptionContainer);

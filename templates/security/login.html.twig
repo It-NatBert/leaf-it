@@ -3,32 +3,56 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div id="connexion-root">
+        <form method="post" class="connexion-page-container-mobile">
+            <h1 class="title">Connexion</h1>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+            <div class="field-container">
+                <label for="inputUsername" class="label-connexion-mobile">
+                    <span class="labels">Adresse mail</span>
+                    <input
+                        type="text"
+                        name="username"
+                        id="inputUsername"
+                        class="form-control"
+                        autocomplete="username"
+                        required
+                        autofocus
+                        value="{{ last_username }}"
+                    >
+                </label>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+                <label for="inputPassword" class="label-connexion-mobile">
+                    <span class="labels">Mot de passe</span>
+                    <input
+                        type="password"
+                        name="password"
+                        id="inputPassword"
+                        class="form-control"
+                        autocomplete="current-password"
+                        required
+                    >
+                    <a href="/password-recovery">J'ai oublié mon mot de passe</a>
+                </label>
 
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
+                <input
+                    type="hidden"
+                    name="_csrf_token"
+                    data-controller="csrf-protection"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+
+                <label>
+                    <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                </label>
+
+            </div>
+
+            <button class="button" type="submit">
+                Connexion
+            </button>
+        </form>
     </div>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+
 {% endblock %}
